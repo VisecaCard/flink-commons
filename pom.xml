@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright 2020 Viseca Card Services SA
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ch.viseca.flink</groupId>
+    <artifactId>flink-commons</artifactId>
+    <version>1.3.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <scala.binary.version>2.11</scala.binary.version>
+        <scala.library.version>2.11.12</scala.library.version>
+        <flink.library.version>1.8.0</flink.library.version>
+        <slf4j.library.version>1.7.25</slf4j.library.version>
+        <org.scalatest.version>3.0.6</org.scalatest.version>
+        <scalatest-maven-plugin.version>2.0.0</scalatest-maven-plugin.version>
+        <com.microsoft.sqlserver.version>7.0.0.jre8</com.microsoft.sqlserver.version>
+        <scala-maven-plugin.version>3.4.6</scala-maven-plugin.version>
+        <maven-surefire-plugin.version>2.7</maven-surefire-plugin.version>
+        <mockito-all.version>1.10.19</mockito-all.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <java.binary.version>1.8</java.binary.version>
+        <glassfish.jersey.version>2.29</glassfish.jersey.version>
+    </properties>
+
+    <modules>
+        <module>starters/flink-scala-commons-starter</module>
+        <module>archetypes/scala-only-archetype</module>
+        <module>archetypes/flink-library-archetype</module>
+        <module>archetypes/flink-job-archetype</module>
+        <module>archetypes/flink-spring-job-archetype</module>
+        <module>archetypes/flink-project-container-archetype</module>
+        <module>libraries/flink-scala-commons</module>
+        <module>libraries/flink-jdbc-connector</module>
+        <module>libraries/flink-spring-commons</module>
+        <module>libraries/flink-kafka-connector</module>
+        <module>libraries/flink-spring-binding</module>
+        <module>samples/flink-samples-featureChain-noDep</module>
+        <module>samples/flink-samples-spring-featureChain</module>
+    </modules>
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>libs-release</name>
+            <url>${repos.deploy.libs-release.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>libs-snapshot</name>
+            <url>${repos.deploy.libs-snapshot.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <build>
+        <!-- To define the plugin version in your parent POM -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.amashchenko.maven.plugin</groupId>
+                    <artifactId>gitflow-maven-plugin</artifactId>
+                    <version>1.13.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <!-- To use the plugin goals in your POM or parent POM -->
+        <plugins>
+            <plugin>
+                <groupId>com.amashchenko.maven.plugin</groupId>
+                <artifactId>gitflow-maven-plugin</artifactId>
+                <version>1.13.0</version>
+                <configuration>
+                    <pushRemote>false</pushRemote>
+                    <verbose>true</verbose>
+                    <keepBranch>true</keepBranch>
+                    <skipTestProject>true</skipTestProject>
+                    <commitDevelopmentVersionAtStart>false</commitDevelopmentVersionAtStart>
+                    <versionDigitToIncrement>2</versionDigitToIncrement>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

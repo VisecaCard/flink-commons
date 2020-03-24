@@ -1,0 +1,14 @@
+.terraform
+ssh
+**.DS_Store
+**.idea
+**.iml
+**dependency-reduced-pom.xml
+**target
+*test.result
+*.retry
+.DS_Store
+*.tar.gz
+*.jar
+*.rpm
+tmp

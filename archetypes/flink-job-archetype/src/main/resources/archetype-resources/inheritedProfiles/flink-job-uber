@@ -1,0 +1,2 @@
+Do not delete this file, it activates the 'flink-job-uber' profile inherited from 'flink-scala-commons-starter' (unless you don't want this profile to be active)
+see here: https://www.mail-archive.com/dev@maven.apache.org/msg92863.html

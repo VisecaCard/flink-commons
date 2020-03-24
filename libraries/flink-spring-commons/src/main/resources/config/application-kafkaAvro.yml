@@ -1,0 +1,36 @@
+#    Copyright 2020 Viseca Card Services SA
+#
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+flink:
+  kafka:
+    #*# one of confluent-schema-registry-client-provider , lenses-schema-registry-client-provider
+    schema-client-provider: confluent-schema-registry-client-provider
+    schema-registry:
+      patchJavaSystemProperties:
+        javax.net.ssl.keyStore: ${quick.ssl.keystore.location}
+        javax.net.ssl.keyStorePassword: ${quick.ssl.keystore.password}
+        javax.net.ssl.trustStore: ${quick.ssl.truststore.location}
+        javax.net.ssl.trustStorePassword: ${quick.ssl.truststore.password}
+        javax.net.ssl.trustStoreType: jks
+
+    confluent-schema-registry-client-provider:
+      identityMapCapacity: 1000
+      baseUrls: ${quick.schema-registry.rest}
+    lenses-schema-registry-client-provider:
+      schemaRegistryClient:
+        identityMapCapacity: 1000
+        restService:
+          baseUrls: ${quick.lenses.rest}
+          credentials:
+            user: ${quick.lenses.user}
+            password: ${quick.lenses.password}

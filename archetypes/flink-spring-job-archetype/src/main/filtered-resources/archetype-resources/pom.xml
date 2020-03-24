@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>\${groupId}</groupId>
+    <artifactId>\${artifactId}</artifactId>
+    <version>\${version}</version>
+
+    <parent>
+        <artifactId>flink-scala-commons-starter</artifactId>
+        <groupId>ch.viseca.flink</groupId>
+        <version>${flink-commons.version}</version>
+    </parent>
+
+    <dependencies>
+        <!-- flink-commons dependencies -->
+        <dependency>
+            <groupId>ch.viseca.flink</groupId>
+            <artifactId>flink-scala-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.viseca.flink</groupId>
+            <artifactId>flink-spring-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.viseca.flink</groupId>
+            <artifactId>flink-spring-binding</artifactId>
+        </dependency>
+        <!-- Kafka/AVRO section-->
+        <!-- uncomment, if connecting to Kafka
+            <dependency>
+                <groupId>ch.viseca.flink</groupId>
+                <artifactId>flink-kafka-connector</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-avro</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-avro-confluent-registry</artifactId>
+            </dependency>
+        -->
+        <!--external dependencies-->
+        <!-- uncomment ad libitum
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-statebackend-rocksdb_${scala.binary.version}</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        -->
+        <!-- uncomment ad libitum
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-runtime-web_${scala.binary.version}</artifactId>
+            </dependency>
+        -->
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+    </build>
+</project>

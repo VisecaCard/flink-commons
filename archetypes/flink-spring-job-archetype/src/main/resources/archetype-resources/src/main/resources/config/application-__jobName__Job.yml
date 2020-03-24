@@ -1,0 +1,15 @@
+spring.profiles.include: [envNoState]
+flink:
+  job:
+    name: ${jobName}Job
+    main: ${jobName}Job
+    sources:
+      ${pound}*${pound} one of stringSourceSmall, stringSourceBigger
+      words: stringSourceBigger
+    sinks:
+      ${pound}*${pound} one of printStreamSink, print1ParallelSink
+      sample-output-sink: print1ParallelSink
+    components:
+      stringWrapper:
+        prefix: "The current event ("
+        postfix: ") is a word"

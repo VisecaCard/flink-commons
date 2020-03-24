@@ -1,0 +1,4 @@
+#set($pound = "#")
+${pound}this profile is active, if no explicit profile is given on the command line: -Dspring.profiles.active=${jobName}Job
+${pound}this enables the specific job profile (to be found in application-${jobName}Job.yml),
+spring.profiles.include: [${jobName}Job]
